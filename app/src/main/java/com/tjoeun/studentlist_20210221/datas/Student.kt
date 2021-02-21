@@ -5,5 +5,4 @@ class Student(
     val birthYear: Int) {
 
 
-
 }
