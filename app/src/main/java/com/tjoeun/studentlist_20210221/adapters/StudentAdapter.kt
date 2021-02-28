@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.tjoeun.studentlist_20210221.R
 import com.tjoeun.studentlist_20210221.datas.Student
+import java.util.*
+import kotlin.collections.ArrayList
 
 class StudentAdapter(
     val mContext : Context,
@@ -39,7 +41,16 @@ class StudentAdapter(
 
 //        Student의 값을 => 텍스트뷰들에 반영
         nameTxt.text = student.name
-        ageTxt.text = "(${student.birthYear}세)"
+
+//        현재 나이를 구해서 반영 => 현재년도 - 출생년도 + 1
+
+//        JAVA의 Calendar 객체 생성 => 기본값 : 현재 일시
+//         cal 에서 년도값을 추출 => 현재년도
+        val cal = Calendar.getInstance()
+
+        val age = cal.get(Calendar.YEAR) - student.birthYear + 1
+
+        ageTxt.text = "(${age}세)"
 
 
         return row
